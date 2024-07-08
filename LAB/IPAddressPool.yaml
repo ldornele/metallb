@@ -1,0 +1,20 @@
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  namespace: metallb-system
+  name: am-policies-service-01
+spec:
+  addresses:
+    - 10.160.207.67/32
+
+
+
+
+
+
+
+
+# https://docs.openshift.com/container-platform/4.14/networking/metallb/about-advertising-ipaddresspool.html
+# oc get IPAddressPool/<IPAddressPool_name> -n metallb-system -o yaml
+# list IPAddressPool - IPAddresses:
+### for ipap in $(oc get IPAddressPool -n metallb-system | awk '{print $1}'); do echo -n $ipap $(oc get IPAddressPool/$ipap -n metallb-system -o json | jq '. | .spec.addresses[0]'); echo; done;

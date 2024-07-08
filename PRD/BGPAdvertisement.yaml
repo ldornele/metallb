@@ -1,0 +1,18 @@
+apiVersion: metallb.io/v1beta1
+kind: BGPAdvertisement
+metadata:
+  name: bgp-adv-pcf
+  namespace: metallb-system
+spec:
+  ipAddressPools:
+  - am-policies-service-01
+  - ums-gui
+  - profile-manager-gui
+  - k8s-dashboard
+  - keycloak-gui
+  - ...
+
+
+
+# https://docs.openshift.com/container-platform/4.14/networking/metallb/about-advertising-ipaddresspool.html
+# oc get BGPAdvertisement/bgp-adv-pcf -n metallb-system -o yaml

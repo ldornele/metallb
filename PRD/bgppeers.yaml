@@ -1,0 +1,27 @@
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: bsapcflansw01-vlan1784
+  namespace: metallb-system
+spec:
+  myASN: 22085
+  peerASN: 22085
+  peerAddress: 10.160.204.130
+  bfdProfile: default-pcf
+
+---
+
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: bsapcflansw02-vlan1784
+  namespace: metallb-system
+spec:
+  myASN: 22085
+  peerASN: 22085
+  peerAddress: 10.160.204.131
+  bfdProfile: default-pcf
+
+
+# https://docs.openshift.com/container-platform/4.14/networking/metallb/metallb-configure-bgp-peers.html
+# oc get BGPPeer/<BGPPeer_name> -n metallb-system -o yaml

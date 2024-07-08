@@ -1,0 +1,13 @@
+apiVersion: metallb.io/v1beta1
+kind: BFDProfile
+metadata:
+  name: default-pcf
+  namespace: metallb-system
+spec:
+  receiveInterval: 300
+  transmitInterval: 300
+  detectMultiplier: 3
+  passiveMode: false
+
+# https://docs.openshift.com/container-platform/4.14/networking/metallb/metallb-configure-bfd-profiles.html
+# oc get BFDProfile/<BFDProfile_name> -n metallb-system -o yaml
